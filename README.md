@@ -34,7 +34,7 @@ cd scripts
 On Arch Linux, run only the AI-agent tools installer:
 
 ```sh
-./install-archlinux-ai-agent-tools.sh
+bash ./scripts/install-archlinux-ai-agent-tools.sh
 ```
 
 The Debian scripts install packages from Debian's Trixie repositories; the
