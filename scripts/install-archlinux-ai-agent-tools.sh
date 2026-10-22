@@ -90,6 +90,7 @@ packages=(
   pango
   python
   python-pip
+  uv
   ripgrep
   unzip
   vulkan-icd-loader
