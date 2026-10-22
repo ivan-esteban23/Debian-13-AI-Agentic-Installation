@@ -21,8 +21,8 @@ changes.
 4. `scripts/install-archlinux-ai-agent-tools.sh` installs the AI-agent CLI
    toolset, `uv` for isolated Python tooling, Herdr for managing agent
    sessions, and Zellij as a terminal multiplexer on Arch Linux. It is the Arch
-   port of the first script only; the dwm and fonts/media scripts remain
-   Debian 13 scripts.
+   port of the first script only; it also offers an optional GitHub CLI web
+   sign-in prompt. The dwm and fonts/media scripts remain Debian 13 scripts.
 
 Example:
 
