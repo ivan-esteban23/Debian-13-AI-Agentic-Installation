@@ -96,6 +96,7 @@ packages=(
   vulkan-icd-loader
   wl-clipboard
   xclip
+  zellij
   zip
 )
 if ((with_docker)); then
@@ -164,6 +165,7 @@ mise exec -- gh --version | head -n 1
 mise exec -- codex --version
 mise exec -- opencode --version
 mise exec -- herdr --version
+zellij --version
 PLAYWRIGHT_BROWSERS_PATH="$playwright_browsers" mise exec -- playwright install --list
 
 cat <<'NEXT'
