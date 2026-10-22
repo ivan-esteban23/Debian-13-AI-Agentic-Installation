@@ -9,7 +9,7 @@ usage() {
 Usage: ./install-archlinux-ai-agent-tools.sh [--with-docker] [--help]
 
 Installs and configures:
-  mise, Node.js/npm, GitHub CLI, Codex CLI, OpenCode,
+  mise, Node.js/npm, GitHub CLI, Codex CLI, OpenCode, Herdr,
   Playwright + Chromium, Python/pip, Git, and agent shell tools.
 
 Options:
@@ -148,6 +148,7 @@ mise use --global \
   gh@latest \
   codex@latest \
   opencode@latest \
+  herdr \
   'npm:playwright@latest'
 
 echo 'Installing Playwright Chromium.'
@@ -162,6 +163,7 @@ mise exec -- git --version
 mise exec -- gh --version | head -n 1
 mise exec -- codex --version
 mise exec -- opencode --version
+mise exec -- herdr --version
 PLAYWRIGHT_BROWSERS_PATH="$playwright_browsers" mise exec -- playwright install --list
 
 cat <<'NEXT'
@@ -170,6 +172,7 @@ Next steps (run the ones for accounts you use):
   gh auth login --hostname github.com --web --git-protocol https
   codex
   opencode
+  herdr
 
 Open a new Bash terminal (or run: source ~/.bashrc) to load mise and the
 Playwright browser path automatically. Playwright's browser system libraries
