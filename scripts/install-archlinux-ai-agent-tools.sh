@@ -168,13 +168,34 @@ mise exec -- herdr --version
 zellij --version
 PLAYWRIGHT_BROWSERS_PATH="$playwright_browsers" mise exec -- playwright install --list
 
+if mise exec -- gh auth status --hostname github.com >/dev/null 2>&1; then
+  echo 'GitHub CLI is already authenticated for github.com.'
+elif [[ -t 0 ]]; then
+  printf '\nGitHub CLI is not authenticated for github.com.\n'
+  read -r -p 'Authenticate with GitHub now using the web flow? [y/N] ' gh_auth_choice
+  case "${gh_auth_choice,,}" in
+    y|yes)
+      if ! mise exec -- gh auth login --hostname github.com --web --git-protocol https; then
+        echo 'GitHub login did not complete. You can retry later with:' >&2
+        echo '  gh auth login --hostname github.com --web --git-protocol https' >&2
+      fi
+      ;;
+    *) echo 'Skipping GitHub authentication.' ;;
+  esac
+else
+  echo 'GitHub CLI is not authenticated. Run this later in an interactive terminal:'
+  echo '  gh auth login --hostname github.com --web --git-protocol https'
+fi
+
 cat <<'NEXT'
 
 Next steps (run the ones for accounts you use):
-  gh auth login --hostname github.com --web --git-protocol https
   codex
   opencode
   herdr
+
+If you skipped GitHub login above, run:
+  gh auth login --hostname github.com --web --git-protocol https
 
 Open a new Bash terminal (or run: source ~/.bashrc) to load mise and the
 Playwright browser path automatically. Playwright's browser system libraries
