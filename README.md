@@ -19,9 +19,9 @@ changes.
    It detects Intel HD Graphics 4000 (PCI ID `8086:0166`) and installs the
    matching i965 VA-API driver for hardware video decoding.
 4. `scripts/install-archlinux-ai-agent-tools.sh` installs the AI-agent CLI
-   toolset and `uv` for isolated Python tooling on Arch Linux. It is the Arch
-   port of the first script only; the dwm and fonts/media scripts remain
-   Debian 13 scripts.
+   toolset, `uv` for isolated Python tooling, and Herdr for managing multiple
+   agent sessions on Arch Linux. It is the Arch port of the first script only;
+   the dwm and fonts/media scripts remain Debian 13 scripts.
 
 Example:
 
