@@ -18,6 +18,9 @@ changes.
    fonts, Liberation fonts, mpv, PCManFM, Kitty, and Mesa graphics packages.
    It detects Intel HD Graphics 4000 (PCI ID `8086:0166`) and installs the
    matching i965 VA-API driver for hardware video decoding.
+4. `scripts/install-archlinux-ai-agent-tools.sh` installs the AI-agent CLI
+   toolset on Arch Linux. It is the Arch port of the first script only; the
+   dwm and fonts/media scripts remain Debian 13 scripts.
 
 Example:
 
@@ -28,9 +31,16 @@ cd scripts
 ./install-debian13-fonts-media-apps.sh
 ```
 
-The scripts install packages from Debian's Trixie repositories and the latest
-mise-managed CLI tools. They do not configure API credentials or sign in to
-accounts.
+On Arch Linux, run only the AI-agent tools installer:
+
+```sh
+bash ./scripts/install-archlinux-ai-agent-tools.sh
+```
+
+The Debian scripts install packages from Debian's Trixie repositories; the
+Arch AI-agent script uses pacman and performs a full system upgrade, as
+required by Arch package management. All scripts use the latest mise-managed
+CLI tools and do not configure API credentials or sign in to accounts.
 
 ## Notes
 
